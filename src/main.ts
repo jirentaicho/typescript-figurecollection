@@ -14,20 +14,42 @@ class Main{
 
         const shelfa = new Shelf("ラブライブ", Array.of(
                 new Item("kanon.jpg"),
-                new Item("misaka.jpg"),
+                new Item("chisato.jpg"),
+                new Item("ren.jpg"),
+                new Item("keke.jpg"),
+                new Item("sumire.jpg"),
             ));
-        shelfa.setBackImage("kanon.jpg");
+        shelfa.setBackImage("lovelivetitle.png");
 
         const shelfb = new Shelf("とある", Array.of(
             new Item("misaka.jpg"),
+            new Item("kuroko.jpg"),
+            new Item("toaru.jpg"),
         ));
-        shelfb.setBackImage("misaka.jpg");
+        shelfb.setBackImage("toarutitle.jpg");
+
+
+        const shelfc = new Shelf("俺妹", Array.of(
+            new Item("kirino.jpg"),
+            new Item("oreimo.jpg"),
+            new Item("ayase.jpg"),
+        ));
+        shelfc.setBackImage("oreimotitle.png");
+
+        const shelfd = new Shelf("鬼滅", Array.of(
+            new Item("rengoku.jpg"),
+            new Item("giyu.jpg"),
+            new Item("nezuko.jpg"),
+        ));
+        shelfd.setBackImage("kimetutitle.jpg");
 
 
         //ここsingletonにする
         const setting = Setting.getInstance();
         setting.addShelf("toaru",shelfa);
         setting.addShelf("lovelive",shelfb);
+        setting.addShelf("oreimo", shelfc);
+        setting.addShelf("kimetu", shelfd);
         
         const shelfarea = Dom.getElementByIdWithException(Dom.SHELF_AREA); 
         setting.drawDomShelfs(shelfarea);

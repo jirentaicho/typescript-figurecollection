@@ -31,7 +31,7 @@ export default class PageLogic{
         // オーバーレイエリアの作成
         const overrayarea = <HTMLDivElement>document.createElement('div');
         overrayarea.setAttribute('id', Dom.OVER_RAY_AREA);
-        overrayarea.setAttribute('class', "fixed hidden left-0 top-0 w-full min-h-screen z-20 bg-black bg-opacity-75");
+        overrayarea.setAttribute('class', "fixed hidden left-0 top-0 flex justify-center items-center w-full min-h-screen z-20 bg-black bg-opacity-75");
         // オーバーレイを閉じる時の動作になります。
         overrayarea.addEventListener('click', function(){
             Animate.PlayWithId(DomConst.CURRENT_IMAGE_ID, {
