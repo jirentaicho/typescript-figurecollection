@@ -34,8 +34,6 @@ class Main{
         }
         setting.drawDomShelfs(shelfarea);
 
-
-
     }
 }
 

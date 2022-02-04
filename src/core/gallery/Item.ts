@@ -1,7 +1,8 @@
 import PageLogic from "../../app/PageLogic";
 import DomItem from "../dom/DomItem";
 
-import anime from 'animejs';
+import DomConst from "../../type/DomConst";
+import Animate from "../anim/Animate";
 
 export default class Item implements DomItem{
     
@@ -16,17 +17,16 @@ export default class Item implements DomItem{
     }
 
     clickEvent(): void {
-       //throw new Error("Method not implemented.");
        // オーバーレイを表示します。
         const overray = PageLogic.OpenGetOverray();
 
        // 画像を表示する
         const element = <HTMLDivElement>document.createElement('div');
-        element.setAttribute('id','image-view');
+        element.setAttribute('id', DomConst.IMAGE_ITEM_VIEW_ID);
         element.setAttribute('class', this.IMAGE_STYLE);
 
         const img = document.createElement('img');
-        img.setAttribute('id','cuurrent_img');
+        img.setAttribute('id', DomConst.CURRENT_IMAGE_ID);
         img.src = `asset/images/${this.image}`; // 画像パス
         element.appendChild(img);
 
@@ -35,12 +35,12 @@ export default class Item implements DomItem{
         // const animationNode = AnimNodeFactory.create('cuurrent_img');
      
         // appendしないとDomに無い状態なのでアニメーションされません。
-        anime({
-            targets: '#cuurrent_img',
+        Animate.PlayWithId(DomConst.CURRENT_IMAGE_ID,{
             scale: [0.8, 1.2, 1],
             duration: 800,
             easing: 'easeInOutSine'
         });
+
         
         
         
