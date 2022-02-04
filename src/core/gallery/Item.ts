@@ -3,6 +3,7 @@ import DomItem from "../dom/DomItem";
 
 import DomConst from "../../type/DomConst";
 import Animate from "../anim/Animate";
+import DomCreator from "../dom/DomCreator";
 
 export default class Item implements DomItem{
     
@@ -17,13 +18,20 @@ export default class Item implements DomItem{
     }
 
     clickEvent(): void {
-       // オーバーレイを表示します。
+        // オーバーレイを表示します。
         const overray = PageLogic.OpenGetOverray();
 
        // 画像を表示する
+       const element = new DomCreator('div')
+                            .idName(DomConst.IMAGE_ITEM_VIEW_ID)
+                            .className(this.IMAGE_STYLE)
+                            .build();
+
+        /*
         const element = <HTMLDivElement>document.createElement('div');
         element.setAttribute('id', DomConst.IMAGE_ITEM_VIEW_ID);
         element.setAttribute('class', this.IMAGE_STYLE);
+        */
 
         const img = document.createElement('img');
         img.setAttribute('id', DomConst.CURRENT_IMAGE_ID);
@@ -34,7 +42,7 @@ export default class Item implements DomItem{
         //アニメーションさせる
         // const animationNode = AnimNodeFactory.create('cuurrent_img');
      
-        // appendしないとDomに無い状態なのでアニメーションされません。
+        // 先にappendしないとDomに無い状態なのでアニメーションされません。
         Animate.PlayWithId(DomConst.CURRENT_IMAGE_ID,{
             scale: [0.8, 1.2, 1],
             duration: 800,
