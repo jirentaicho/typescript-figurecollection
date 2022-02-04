@@ -1,4 +1,5 @@
 import Dom from "../dom/Dom";
+import DomCreator from "../dom/DomCreator";
 import DomItem from "../dom/DomItem";
 import Item from "./Item";
 
@@ -25,6 +26,24 @@ export default class Shelf implements DomItem{
     
     getHtml(): HTMLElement {
         // まずはshelfとしてのdiv要素を作成する
+        const element = new DomCreator('div')
+                            .idName(this.name)
+                            .className(this.OUTER_STYLE)
+                            .build();
+        if(this.imageName != ""){
+            element.style.backgroundImage = `url(asset/images/${this.imageName})`;
+        }
+        element.addEventListener('click', this.clickEvent.bind(this));
+
+        const innerElement = new DomCreator('div')
+                                .className(this.INNERT_STYLE)
+                                .build();
+        innerElement.textContent = this.name;                            
+
+        element.appendChild(innerElement);
+
+        /*
+        この記載は長い気がする
         const element = <HTMLDivElement>document.createElement('div');
         element.setAttribute('id',this.name);
         element.setAttribute('class', this.OUTER_STYLE);
@@ -32,16 +51,10 @@ export default class Shelf implements DomItem{
             element.style.backgroundImage = `url(asset/images/${this.imageName})`;
         }
         element.addEventListener('click', this.clickEvent.bind(this));
-
-        //　タイトル箇所
-        const innerElement = <HTMLDivElement>document.createElement('div');
-        innerElement.textContent = this.name;
-        innerElement.setAttribute('class', this.INNERT_STYLE);
-        element.appendChild(innerElement);
+        */
 
         return element;
     }
-
 
 
     clickEvent(): void {

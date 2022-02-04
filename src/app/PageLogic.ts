@@ -9,10 +9,10 @@ export default class PageLogic{
 
     public static init(): void{
         //初期処理が完了している場合は処理しない
-        if(this.loaded){
+        if(PageLogic.loaded){
             return;
         }
-        this.loaded = true;
+        PageLogic.loaded = true;
         
         // ITEMエリアの作成
         const element = <HTMLDivElement>document.createElement('div');
@@ -37,6 +37,11 @@ export default class PageLogic{
         document.body.appendChild(overrayarea);
     }
 
+    /**
+     * オーバーレイエリアを表示して取得します。
+     * 
+     * @returns 
+     */
     public static OpenGetOverray(): HTMLElement{
         const overray = document.getElementById(Dom.OVER_RAY_AREA);
         if(overray === null){
