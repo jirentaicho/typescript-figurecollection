@@ -1,0 +1,18 @@
+/**　一部高さが効かないのでここで指定します */
+#item_area{
+    height:80vh;
+}
+
+#shelf_area{
+    height:20vh;
+}
+
+#image-view{
+    height: 90vh;
+    img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+}

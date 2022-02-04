@@ -62,11 +62,7 @@ export default class PageLogic{
      * @returns 
      */
     public static OpenGetOverray(): HTMLElement{
-        const overray = document.getElementById(Dom.OVER_RAY_AREA);
-        if(overray === null){
-            alert('設定ができていません。: Overrayが未設定です');
-            throw new Error("設定ができていません。: Overrayが未設定です.");
-        }
+        const overray = Dom.getElementByIdWithException(DomConst.OVERRAY_AREA_ID);
         // 子要素は全削除する
         Dom.clearChildNode(overray);
         overray.classList.remove(DomConst.HIDDEN);
