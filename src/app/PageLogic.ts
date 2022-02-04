@@ -1,3 +1,4 @@
+import Animate from "../core/anim/Animate";
 import Dom from "../core/dom/Dom";
 import DomConst from "../type/DomConst";
 
@@ -31,9 +32,18 @@ export default class PageLogic{
         const overrayarea = <HTMLDivElement>document.createElement('div');
         overrayarea.setAttribute('id', Dom.OVER_RAY_AREA);
         overrayarea.setAttribute('class', "fixed hidden left-0 top-0 w-full min-h-screen z-20 bg-black bg-opacity-75");
+        // オーバーレイを閉じる時の動作になります。
         overrayarea.addEventListener('click', function(){
-            this.classList.add('hidden');
+            Animate.PlayWithId(DomConst.CURRENT_IMAGE_ID, {
+                scale: [0.6, 1, 0.1],
+                duration: 800,
+                easing: 'easeInOutSine',
+                complete: ()=> {
+                    this.classList.add('hidden');
+                }
+            });
         });
+        
         document.body.appendChild(overrayarea);
     }
 
