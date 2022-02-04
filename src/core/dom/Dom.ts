@@ -39,4 +39,19 @@ export default class Dom{
         }
     }
 
+    /**
+     * idのDomを取得します。
+     * 取得に失敗した場合は例外とします。
+     * @param id 
+     * @returns HTMLElement
+     */
+    public static getElementByIdWithException(id : string): HTMLElement{
+        const element = document.getElementById(id);
+        if(element === null){
+            alert(`対象のDOMが存在しません id : ${id}`);
+            throw new Error(`対象のDOMが存在しません id : ${id}`);
+        }
+        return element;
+    }
+
 }

@@ -27,11 +27,8 @@ class Main{
         const setting = Setting.getInstance();
         setting.addShelf("toaru",shelfa);
         setting.addShelf("lovelive",shelfb);
-        const shelfarea = document.getElementById(Dom.SHELF_AREA);
-        if(shelfarea === null){
-            alert("エラーです");
-            return;
-        }
+        
+        const shelfarea = Dom.getElementByIdWithException(Dom.SHELF_AREA); 
         setting.drawDomShelfs(shelfarea);
 
     }
