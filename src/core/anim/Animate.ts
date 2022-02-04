@@ -9,5 +9,10 @@ export default class Animate {
         params.targets = `#${targetId}`;
         anime(params);
     }
-    
+
+    public static PlayWithDom(dom: HTMLElement, params: anime.AnimeParams): void{
+        params.targets = `#${dom.getAttribute('id')}`;
+        anime(params);
+    }
+
 }

@@ -1,6 +1,5 @@
 import PageLogic from "../../app/PageLogic";
 import DomItem from "../dom/DomItem";
-
 import DomConst from "../../type/DomConst";
 import Animate from "../anim/Animate";
 import DomCreator from "../dom/DomCreator";
@@ -31,41 +30,29 @@ export default class Item implements DomItem{
                         .idName(DomConst.CURRENT_IMAGE_ID)
                         .srcName(`asset/images/${this.image}`)
                         .build();
-
-
-
-       //const img = document.createElement('img');
-       // img.setAttribute('id', DomConst.CURRENT_IMAGE_ID);
-       // img.src = `asset/images/${this.image}`; // 画像パス
+        // 外枠に画像を追加する
         element.appendChild(img);
-
+        // オーバーレイに外枠を追加する
         overray.appendChild(element);
-        //アニメーションさせる
-        // const animationNode = AnimNodeFactory.create('cuurrent_img');
-     
+
         // 先にappendしないとDomに無い状態なのでアニメーションされません。
-        Animate.PlayWithId(DomConst.CURRENT_IMAGE_ID,{
+        Animate.PlayWithDom(img, {
             scale: [0.8, 1.2, 1],
             duration: 800,
             easing: 'easeInOutSine'
         });
-
-        
-        
-        
     }
 
     // HTMLElementを返却します。
     getHtml(): HTMLElement{
-        const element = <HTMLDivElement>document.createElement('div');
-        element.setAttribute('id',this.image);
-        element.setAttribute('class', this.PREVIEW_STYLE);
+        const element = new DomCreator('div')
+                .idName(this.image)
+                .className(this.PREVIEW_STYLE)
+                .build();
         element.style.backgroundImage = `url(asset/images/${this.image})`;
-        
         element.addEventListener('click',this.clickEvent.bind(this));
 
         return element;
     }
-
 
 }
