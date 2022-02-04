@@ -1,3 +1,7 @@
+/**
+ * unused class
+ */
+
 import AnimNode from "./AnimNode";
 
 export default class AnimNodeFactory{

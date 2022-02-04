@@ -1,11 +1,5 @@
 
 export default class Dom{
-
-    public static readonly ITEM_AREA_STR = "item_area";
-
-    public static readonly SHELF_AREA = "shelf_area";
-
-    public static readonly OVER_RAY_AREA = "over_ray";
     
     private constructor(){}
 

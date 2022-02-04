@@ -4,6 +4,7 @@ import Dom from './core/dom/Dom';
 import Item from './core/gallery/Item';
 import Shelf from './core/gallery/Shelf';
 import Setting from './info/Setting';
+import DomConst from './type/DomConst';
 
 
 class Main{
@@ -51,7 +52,7 @@ class Main{
         setting.addShelf("oreimo", shelfc);
         setting.addShelf("kimetu", shelfd);
         
-        const shelfarea = Dom.getElementByIdWithException(Dom.SHELF_AREA); 
+        const shelfarea = Dom.getElementByIdWithException(DomConst.SHELF_AREA_ID); 
         setting.drawDomShelfs(shelfarea);
 
     }

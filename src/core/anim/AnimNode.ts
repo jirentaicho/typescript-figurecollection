@@ -1,4 +1,6 @@
-
+/**
+ * unused class
+ */
 export default class AnimNode{
     private element : HTMLElement | undefined;
 

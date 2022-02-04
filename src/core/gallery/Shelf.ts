@@ -1,3 +1,4 @@
+import DomConst from "../../type/DomConst";
 import Dom from "../dom/Dom";
 import DomCreator from "../dom/DomCreator";
 import DomItem from "../dom/DomItem";
@@ -58,10 +59,7 @@ export default class Shelf implements DomItem{
 
 
     clickEvent(): void {
-        const parrent = document.getElementById(Dom.ITEM_AREA_STR);
-        if(parrent === null){
-            return;
-        }
+        const parrent = Dom.getElementByIdWithException(DomConst.ITEM_AREA_ID);
         // 対象DIVのDOMの要素を空にする必要がある
         Dom.clearChildNode(parrent);
         // 対象DIVにITEMを全て追加する
