@@ -1,5 +1,4 @@
-import AnimationLogic from "../../app/AnimationLogic";
-import AnimNodeFactory from "../anim/AnimNodeFactory";
+import PageLogic from "../../app/PageLogic";
 import DomItem from "../dom/DomItem";
 
 import anime from 'animejs';
@@ -19,7 +18,7 @@ export default class Item implements DomItem{
     clickEvent(): void {
        //throw new Error("Method not implemented.");
        // オーバーレイを表示します。
-        const overray = AnimationLogic.OpenGetOverray();
+        const overray = PageLogic.OpenGetOverray();
 
        // 画像を表示する
         const element = <HTMLDivElement>document.createElement('div');

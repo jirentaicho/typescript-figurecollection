@@ -1,6 +1,18 @@
 import Shelf from "../core/gallery/Shelf";
 
 export default class Setting{
+
+    private constructor(){}
+
+    private static instance : Setting;
+
+    public static getInstance(): Setting{
+        if(!Setting.instance){
+            Setting.instance = new Setting();
+        }
+        return Setting.instance;
+    }
+
     private shelfs: Record<string,Shelf> = {};
 
     public addShelf(name: string, shelf : Shelf) : void {
@@ -13,6 +25,4 @@ export default class Setting{
         }
     }
 
-
-    
 }

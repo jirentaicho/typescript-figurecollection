@@ -1,4 +1,4 @@
-import { init } from './app/Init';
+import PageLogic from './app/PageLogic';
 import './asset/sass/app.scss';
 import Dom from './core/dom/Dom';
 import Item from './core/gallery/Item';
@@ -10,9 +10,7 @@ class Main{
     public init() : void{
 
         // 初期画面に必要なものを揃えます
-        init();
-
-       
+        PageLogic.init();
 
         // オブジェクトのループはfor in で行う
         const itema = new Item("kanon.jpg");
@@ -26,7 +24,7 @@ class Main{
 
 
         //ここsingletonにする
-        const setting = new Setting();
+        const setting = Setting.getInstance();
         setting.addShelf("toaru",shelfa);
         setting.addShelf("lovelive",shelfb);
         const shelfarea = document.getElementById(Dom.SHELF_AREA);
