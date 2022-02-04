@@ -12,14 +12,15 @@ class Main{
         // 初期画面に必要なものを揃えます
         PageLogic.init();
 
-        // オブジェクトのループはfor in で行う
-        const itema = new Item("kanon.jpg");
-        const itemb = new Item("kanon.jpg");
-        const itemc = new Item("misaka.jpg");
-
-        const shelfa = new Shelf("ラブライブ",Array.of(itema,itemb));
+        const shelfa = new Shelf("ラブライブ", Array.of(
+                new Item("kanon.jpg"),
+                new Item("misaka.jpg"),
+            ));
         shelfa.setBackImage("kanon.jpg");
-        const shelfb = new Shelf("とある",Array.of(itemc));
+
+        const shelfb = new Shelf("とある", Array.of(
+            new Item("misaka.jpg"),
+        ));
         shelfb.setBackImage("misaka.jpg");
 
 
@@ -35,7 +36,6 @@ class Main{
 }
 
 window.onload = () => {
-    console.log("aaaaaaaa");
     const main = new Main();
     main.init();
 }
