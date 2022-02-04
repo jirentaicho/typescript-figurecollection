@@ -21,21 +21,22 @@ export default class Item implements DomItem{
         // オーバーレイを表示します。
         const overray = PageLogic.OpenGetOverray();
 
-       // 画像を表示する
+       // 画像を表示のアウター枠
        const element = new DomCreator('div')
                             .idName(DomConst.IMAGE_ITEM_VIEW_ID)
                             .className(this.IMAGE_STYLE)
                             .build();
+        // 現在の表示画像の作成
+        const img = new DomCreator('img')
+                        .idName(DomConst.CURRENT_IMAGE_ID)
+                        .srcName(`asset/images/${this.image}`)
+                        .build();
 
-        /*
-        const element = <HTMLDivElement>document.createElement('div');
-        element.setAttribute('id', DomConst.IMAGE_ITEM_VIEW_ID);
-        element.setAttribute('class', this.IMAGE_STYLE);
-        */
 
-        const img = document.createElement('img');
-        img.setAttribute('id', DomConst.CURRENT_IMAGE_ID);
-        img.src = `asset/images/${this.image}`; // 画像パス
+
+       //const img = document.createElement('img');
+       // img.setAttribute('id', DomConst.CURRENT_IMAGE_ID);
+       // img.src = `asset/images/${this.image}`; // 画像パス
         element.appendChild(img);
 
         overray.appendChild(element);

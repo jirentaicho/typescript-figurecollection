@@ -1,10 +1,8 @@
-export default class DomCreator{
+export default class DomCreator<K extends keyof HTMLElementTagNameMap>{
 
     private result : HTMLElement | HTMLImageElement;
 
-    private constructor(){};
-
-    public init<K extends keyof HTMLElementTagNameMap>(tagName: K): void{
+    public constructor(tagName: K){
         this.result = <HTMLElementTagNameMap[K]>document.createElement(tagName);
     }
 
@@ -12,17 +10,17 @@ export default class DomCreator{
         return this.result;
     }
 
-    public idName(id: string): DomCreator{
+    public idName(id: string): DomCreator<K>{
         this.result.setAttribute('id', id);
         return this;
     }
 
-    public className(className: string): DomCreator{
+    public className(className: string): DomCreator<K>{
         this.result.setAttribute('class',className);
         return this;
     }
 
-    public srcName(srcName: string): DomCreator{
+    public srcName(srcName: string): DomCreator<K>{
         if(this.result instanceof HTMLImageElement){
             this.result.src = srcName;
         } else {
@@ -30,7 +28,5 @@ export default class DomCreator{
         }
         return this;
     }
-
-    
 
 }
