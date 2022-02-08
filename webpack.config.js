@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
-    //mode: "development", // バンドルモード
-    mode: "production",
+    mode: "development", // バンドルモード
+   // mode: "production",
     entry: './src/main.ts', // 入口となるファイル
     output: {   //　バンドルしたファイルの出力先
         path: path.resolve(__dirname, 'public'), // publicフォルダ

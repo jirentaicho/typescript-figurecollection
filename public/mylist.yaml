@@ -1,0 +1,15 @@
+-
+  name: ラブライブ
+  imageName: lovelivetitle.png
+  items: 
+  - kanon.jpg
+  - keke.jpg
+  - chisato.jpg
+-
+  name: とある
+  imageName: toarutitle.jpg
+  items: 
+  - kuroko.jpg
+  - misaka.jpg
+  - toaru.jpg
+

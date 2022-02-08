@@ -43,17 +43,6 @@ export default class Shelf implements DomItem{
 
         element.appendChild(innerElement);
 
-        /*
-        この記載は長い気がする
-        const element = <HTMLDivElement>document.createElement('div');
-        element.setAttribute('id',this.name);
-        element.setAttribute('class', this.OUTER_STYLE);
-        if(this.imageName != ""){
-            element.style.backgroundImage = `url(asset/images/${this.imageName})`;
-        }
-        element.addEventListener('click', this.clickEvent.bind(this));
-        */
-
         return element;
     }
 

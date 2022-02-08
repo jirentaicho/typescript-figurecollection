@@ -3,8 +3,9 @@ import DomItem from "../dom/DomItem";
 import DomConst from "../../type/DomConst";
 import Animate from "../anim/Animate";
 import DomCreator from "../dom/DomCreator";
+import ClassMaker from "../ClassMaker";
 
-export default class Item implements DomItem{
+export default class Item extends ClassMaker implements DomItem{
     
     private image: string;
 
@@ -13,6 +14,7 @@ export default class Item implements DomItem{
     private readonly IMAGE_STYLE = "flex justify-center items-center w-5/5";
 
     constructor(img: string){
+        super();
         this.image = img;
     }
 
